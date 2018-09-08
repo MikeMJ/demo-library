@@ -2,10 +2,8 @@ package com.mikola.demolibrary.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Mikola on  Sep 07, 2018
@@ -17,10 +15,26 @@ public class User {
     @GeneratedValue
     @Id
     private long id;
-    private String name;
+    private String userName;
+    private String firstName;
+    private String lastName;
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    private List<Reservation> reservations;
+
+    public User() {
+
+    }
+
+    public User(String userName, String firstName, String lastName) {
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     @Override
     public String toString() {
-        return String.format("ID - %d, Name - %s", id, name);
+        return String.format("ID - %d, User name - %s,Name - %s %s", id, userName, firstName, lastName);
     }
+
+
 }

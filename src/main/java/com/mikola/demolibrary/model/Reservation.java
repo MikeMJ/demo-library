@@ -15,12 +15,20 @@ public class Reservation {
     @Id
     @GeneratedValue
     private long id;
-    @OneToMany
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
     private Book book;
-    @OneToMany
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
     private Date reservationDate;
     private Date releaseDate;
+
+    public Reservation(){
+    }
+
+    public Reservation(Book book, User user){
+        this.book=book;
+        this.user=user;
+    }
 }

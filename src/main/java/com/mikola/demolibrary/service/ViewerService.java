@@ -10,6 +10,6 @@ import java.util.List;
 public interface ViewerService {
     List<Book> listBooks(String filter);
 
-    Book showBookDetail(long bookId);
+    Book showBookDetails(long bookId);
 
 }
