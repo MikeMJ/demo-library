@@ -1,5 +1,6 @@
 package com.mikola.demolibrary.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,9 +16,11 @@ public class Book {
     @Id
     @GeneratedValue
     private long id;
+    @Column(unique = true)
     private String isbn;
     private String name;
     private String author;
+    @JsonIgnore
     @OneToMany(mappedBy = "book",fetch = FetchType.LAZY)
     private List<Reservation> reservations;
 

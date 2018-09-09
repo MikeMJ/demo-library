@@ -9,6 +9,8 @@ public enum ResponseCode {
     NoSuchBook("400.1"),
     NoSuchUser("400.2"),
     BookReserved("400.3"),
+    NoReservation("400.4"),
+    BadInputForParameter("400.5"),
     Internal("500.1");
     private String code;
 
