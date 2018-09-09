@@ -1,9 +1,15 @@
 package com.mikola.demolibrary.service;
 
+import com.mikola.demolibrary.exceptions.BookAlreadyReservedException;
+import com.mikola.demolibrary.exceptions.InternalException;
+import com.mikola.demolibrary.exceptions.NoSuchBookException;
+import com.mikola.demolibrary.exceptions.NoSuchUserException;
+
 /**
  * Created by Mikola on  Sep 07, 2018
  */
 public interface ReservationService {
-    long reserve(long bookId,long userId);
+    long reserve(long bookId, long userId) throws BookAlreadyReservedException, NoSuchBookException, NoSuchUserException, InternalException;
+
     void release(long bookId);
 }

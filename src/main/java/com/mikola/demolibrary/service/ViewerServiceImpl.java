@@ -3,6 +3,9 @@ package com.mikola.demolibrary.service;
 import com.mikola.demolibrary.dao.BookRepository;
 import com.mikola.demolibrary.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,8 +19,9 @@ public class ViewerServiceImpl implements ViewerService {
     BookRepository bookRepository;
 
     @Override
-    public List<Book> listBooks(String filter) {
-        return bookRepository.findAll();
+    public Page<Book> listBooks(String filter, int pageNumber,int pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber,pageSize);
+        return bookRepository.getBooksMatchingFilter(filter,pageable);
     }
 
     @Override

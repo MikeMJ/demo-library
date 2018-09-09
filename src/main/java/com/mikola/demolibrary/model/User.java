@@ -18,7 +18,7 @@ public class User {
     private String userName;
     private String firstName;
     private String lastName;
-    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     private List<Reservation> reservations;
 
     public User() {
