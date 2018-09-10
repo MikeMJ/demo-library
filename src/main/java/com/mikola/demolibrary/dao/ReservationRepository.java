@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
     Reservation findByBookEqualsAndReleaseDateIsNull(Book book);
 
-    @Query("select r from Reservation r join fetch r.book where r.book.id = :bookId")
+    @Query("select r from Reservation r join fetch r.book where r.book.id = :bookId and r.releaseDate is null")
     Reservation getReservationForBook(@Param("bookId") long bookId);
 }

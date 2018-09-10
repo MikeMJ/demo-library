@@ -13,9 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.Pattern;
-import javax.websocket.server.PathParam;
-
 /**
  * Created by Mikola on  Sep 10, 2018
  */
