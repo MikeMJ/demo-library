@@ -37,7 +37,7 @@ public class ViewerController {
         logger.debug("Request received to list books with filter:{}, page:{} and size:{}", filter, page, size);
         if (page < 1)
             page = 1;
-        Page<Book> books = viewerService.listBooks(filter, page, size);
+        Page<Book> books = viewerService.listBooks(filter, page-1, size);
         logger.info("{} books retrieved for filter:{}", books.getTotalElements(), filter);
         return new Response(ResponseCode.Ok.getCode(), "OK", books);
     }

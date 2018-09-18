@@ -21,7 +21,7 @@ public class ViewerServiceImpl implements ViewerService {
 
     @Override
     public Page<Book> listBooks(String filter, int pageNumber, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
         return bookRepository.getBooksMatchingFilter(filter, pageable);
     }
 
